@@ -1,4 +1,4 @@
-# dataframe-validation
+# pandas-validity
 It is a library to validate pandas DataFrames at once.
 The `DataFrameValidator` is used as a context manager. In the context you may run multiple validations/checks.
 All occurred errors are gathered and printed in the end of process.
@@ -7,7 +7,7 @@ The `DataFrameValidator` raises `ValidationErrorsGroup` exception.
 ```python
 import pandas as pd
 import datetime
-from dataframe_validation.validator import DataFrameValidator
+from pandas_validity.validator import DataFrameValidator
 
 df = pd.DataFrame(
         {
@@ -35,23 +35,20 @@ with DataFrameValidator(df) as validator:
 ```
 Output:
 ```
-Error occurred: (<class 'dataframe_validation.exceptions.ValidationError'>) The dataframe has missing columns: ['E']
-Error occurred: (<class 'dataframe_validation.exceptions.ValidationError'>) The dataframe has redundant columns: ['D']
-Error occurred: (<class 'dataframe_validation.exceptions.ValidationError'>) Column 'A' has invalid data-type: 'int64'
-Error occurred: (<class 'dataframe_validation.exceptions.ValidationError'>) Found 1 missing values: [{'index': 1, 'column': 'B', 'value': None}]
+Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) The dataframe has missing columns: ['E']
+Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) The dataframe has redundant columns: ['D']
+Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) Column 'A' has invalid data-type: 'int64'
+Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) Found 1 missing values: [{'index': 1, 'column': 'B', 'value': None}]
   + Exception Group Traceback (most recent call last):
-  |   File "/home/user/projects/pydata-validator/run.py", line 21, in <module>
-  |     with DataFrameValidator(df) as validator:
-  |   File "/home/user/projects/pydata-validator/src/dataframe_validation/abstract.py", line 33, in __exit__
-  |     raise ValidationErrorsGroup(
-  | dataframe_validation.exceptions.ValidationErrorsGroup: Validation errors found: 4. (4 sub-exceptions)
+...
+  | pandas_validity.exceptions.ValidationErrorsGroup: Validation errors found: 4. (4 sub-exceptions)
   +-+---------------- 1 ----------------
-    | dataframe_validation.exceptions.ValidationError: The dataframe has missing columns: ['E']
+    | pandas_validity.exceptions.ValidationError: The dataframe has missing columns: ['E']
     +---------------- 2 ----------------
-    | dataframe_validation.exceptions.ValidationError: The dataframe has redundant columns: ['D']
+    | pandas_validity.exceptions.ValidationError: The dataframe has redundant columns: ['D']
     +---------------- 3 ----------------
-    | dataframe_validation.exceptions.ValidationError: Column 'A' has invalid data-type: 'int64'
+    | pandas_validity.exceptions.ValidationError: Column 'A' has invalid data-type: 'int64'
     +---------------- 4 ----------------
-    | dataframe_validation.exceptions.ValidationError: Found 1 missing values: [{'index': 1, 'column': 'B', 'value': None}]
+    | pandas_validity.exceptions.ValidationError: Found 1 missing values: [{'index': 1, 'column': 'B', 'value': None}]
     +------------------------------------
 ```

@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "dataframe-validation"
+name = "pandas-validity"
 version = "0.1.0"
 description = "Validation library for Pandas Dataframe"
 authors = ["ohmycoffe <ohmycoffe1@gmail.com>"]
 readme = "README.md"
-packages = [{include = "dataframe_validation", from = "src"}]
+packages = [{include = "pandas_validity", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"

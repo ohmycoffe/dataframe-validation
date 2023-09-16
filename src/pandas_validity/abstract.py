@@ -1,7 +1,7 @@
 import abc
 import logging
 
-from dataframe_validation.exceptions import ValidationErrorsGroup
+from pandas_validity.exceptions import ValidationErrorsGroup
 
 logger = logging.getLogger(__name__)
 

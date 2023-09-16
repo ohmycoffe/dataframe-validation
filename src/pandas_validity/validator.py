@@ -5,13 +5,13 @@ import logging
 import numpy as np
 import pandas as pd
 
-from dataframe_validation.abstract import AbstractValidator
-from dataframe_validation.custom_typings import ValidationFunc_T
-from dataframe_validation.data_type_registry import (
+from pandas_validity.abstract import AbstractValidator
+from pandas_validity.custom_typings import ValidationFunc_T
+from pandas_validity.data_type_registry import (
     DataTypeValidatorsRegistry,
     build_data_type_validators_registry,
 )
-from dataframe_validation.exceptions import ValidationError
+from pandas_validity.exceptions import ValidationError
 
 logger = logging.getLogger(__name__)
 
