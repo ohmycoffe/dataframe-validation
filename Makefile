@@ -31,7 +31,7 @@ lint: .poetry # Lint python source files
 
 .PHONY: pre-commit
 pre_commit: .poetry # Run pre-commit for all files
-	pre-commit run --all-files
+	poetry run pre-commit run --all-files
 
 .PHONY: test-cov
 test-cov: .poetry .clean-coverage # Run tests with coverage
@@ -46,11 +46,18 @@ test: .poetry # Build packages for different versions of Python and run tests fo
 	@[ -f .coverage ] && rm .coverage || echo ".coverage doesn't exist"
 	@rm -rf htmlcov
 
+.PHONY: .clean-build
+.clean-build:
+	@rm -rf dist
+
+PHONY: build
+build: .poetry .clean-build # Build the package
+	poetry build
+
 .PHONY: clean
-clean: .clean-coverage # Clean repository
+clean: .clean-coverage .clean-build# Clean repository
 	@rm -rf .tox
 	@rm -rf .mypy_cache
-
 
 .PHONY: help # Show this help message (author @dwmkerr: https://dwmkerr.com/makefile-help-command/)
 help: # (default) List all available commands
@@ -59,4 +66,4 @@ help: # (default) List all available commands
 .PHONY : init-local, init-remote, all
 install : .install-project .install-pre-commit # Install the package, dependencies, and pre-commit for local development
 install-cicd : .install-project # Install the package, dependencies, and pre-commit for cicd
-all : clean install format lint pre_commit test test-cov# Run all commands
+all : clean install format lint pre_commit test test-cov build# Run all commands

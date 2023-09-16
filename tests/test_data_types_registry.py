@@ -1,8 +1,8 @@
 import pandas as pd
 import pytest
 
-from dataframe_validation.data_type_registry import DataTypeValidatorsRegistry
-from dataframe_validation.exceptions import RegistryError
+from pandas_validity.data_type_registry import DataTypeValidatorsRegistry
+from pandas_validity.exceptions import RegistryError
 
 
 @pytest.fixture

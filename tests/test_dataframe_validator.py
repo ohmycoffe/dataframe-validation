@@ -6,8 +6,8 @@ import pandas as pd
 import pytest
 from pytest_mock import MockerFixture
 
-from dataframe_validation.exceptions import ValidationError, ValidationErrorsGroup
-from dataframe_validation.validator import DataFrameValidator
+from pandas_validity.exceptions import ValidationError, ValidationErrorsGroup
+from pandas_validity.validator import DataFrameValidator
 
 
 @pytest.fixture

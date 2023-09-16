@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import pandas as pd
 
-from dataframe_validation.custom_typings import ValidationFunc_T
-from dataframe_validation.exceptions import RegistryError
+from pandas_validity.custom_typings import ValidationFunc_T
+from pandas_validity.exceptions import RegistryError
 
 
 def check_callable(_callable: ValidationFunc_T):
