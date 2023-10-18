@@ -1,10 +1,32 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "pandas-validity"
-version = "0.1.0"
+version = "0.1.1"
 description = "Validation library for Pandas Dataframe"
 authors = ["ohmycoffe <ohmycoffe1@gmail.com>"]
 readme = "README.md"
 packages = [{include = "pandas_validity", from = "src"}]
+license = "MIT"
+repository = "https://github.com/ohmycoffe/pandas-validity"
+keywords = ["pandas", "dataframe", "validation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries",
+    "License :: OSI Approved :: MIT License",
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -36,10 +58,6 @@ types-setuptools = "^68.2.0.0"
 [tool.poetry.group.format.dependencies]
 black = "^23.7.0"
 isort = "^5.12.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
 profile = "black"

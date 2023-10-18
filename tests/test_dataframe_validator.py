@@ -4,10 +4,9 @@ from unittest.mock import MagicMock
 import numpy as np
 import pandas as pd
 import pytest
-from pytest_mock import MockerFixture
-
 from pandas_validity.exceptions import ValidationError, ValidationErrorsGroup
 from pandas_validity.validator import DataFrameValidator
+from pytest_mock import MockerFixture
 
 
 @pytest.fixture
@@ -98,7 +97,9 @@ def test_should_raise_error_if_wrong_datatypes(valid_df: pd.DataFrame):
     }
     with pytest.raises(ValidationErrorsGroup) as excinfo:
         with DataFrameValidator(valid_df) as validator:
-            validator.has_valid_data_types(expected_data_types=wrong_validators)
+            validator.has_valid_data_types(
+                expected_data_types=wrong_validators  # pyright: ignore
+            )
 
     reasons = excinfo.value.args[1]
     assert len(wrong_validators) == len(reasons)

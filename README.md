@@ -1,27 +1,58 @@
 # pandas-validity
 [![PyPI - Version](https://img.shields.io/pypi/v/pandas-validity)](https://pypi.org/project/pandas-validity/)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pandas-validity)
-[![Test and lint](https://github.com/ohmycoffe/pandas-validity/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ohmycoffe/pandas-validity/actions/workflows/test.yaml?query=branch%3Amain)
-[![codecov](https://codecov.io/gh/ohmycoffe/organize-photos/graph/badge.svg?token=PAN0F7B4E8)](https://codecov.io/gh/ohmycoffe/organize-photos)
+[![Test and lint](https://github.com/ohmycoffe/pandas-validity/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/ohmycoffe/pandas-validity/actions/workflows/test.yml?query=branch%3Amain)
+[![codecov](https://codecov.io/gh/ohmycoffe/pandas-validity/graph/badge.svg?token=4K6RV6E9JX)](https://codecov.io/gh/ohmycoffe/pandas-validity)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 ![PyPI - License](https://img.shields.io/pypi/l/organize-photos)
-## What is it?
-**pandas-validity** is a Python library for validation of pandas DataFrames. It provides a `DataFrameValidator` class that serves as a context manager. Within this context, you can perform multiple validations and checks. Any encountered errors are collected and raised at the end of the process. The `DataFrameValidator` raises a `ValidationErrorsGroup` exception to summarize the errors.
 
-## Where to get it?
+## What is it?
+
+**pandas-validity** is a Python library for the validation of pandas DataFrames. It provides a `DataFrameValidator` class that serves as a context manager. Within this context, you can perform multiple validations and checks. Any encountered errors are collected and raised at the end of the process. The `DataFrameValidator` raises a `ValidationErrorsGroup` exception to summarize the errors.
+
+## Installation
+
 You can easily install the latest released version using binary installers from the [Python Package Index (PyPI)](https://pypi.org/project/pandas-validity):
 
 ```sh
 pip install pandas-validity
 ```
 
+### Development Installation
+
+**Prerequisites**: [poetry](https://python-poetry.org/) for environment management 
+
+The source code is currently hosted on GitHub at [ohmycoffe/pandas-validity](https://github.com/ohmycoffe/pandas-validity). To get the development version:
+
+```shell
+git clone git@github.com:ohmycoffe/pandas-validity.git
+```
+
+To install the project and development dependencies:
+
+```shell
+make install 
+```
+
+To run tests:
+
+```shell
+make test 
+```
+
+To view all possible commands, use:
+
+```shell
+make 
+```
+
 ## Usage
 ```python
 import pandas as pd
 import datetime
-from pandas_validity.validator import DataFrameValidator
+from pandas_validity import DataFrameValidator
 
 # Create a sample DataFrame
 df = pd.DataFrame(
@@ -54,6 +85,7 @@ with DataFrameValidator(df) as validator:
 ```
 
 **Output:**
+
 ```shell
 Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) The dataframe has missing columns: ['E']
 Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) The dataframe has redundant columns: ['D']
@@ -72,6 +104,12 @@ Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) Found 1 m
     | pandas_validity.exceptions.ValidationError: Found 1 missing value: [{'index': 1, 'column': 'B', 'value': None}]
     +------------------------------------
 ```
+---
+
+The library supports the following data types for validation:
+- predefined: `"str"`, `"int"`, `"float"`,`"datetime"`, `"bool"`
+- or any `Callable` that accepts a data `type/dtype` object and returns a boolean value to indicate the validation status - example: `pd.api.types.is_string_dtype`
+
 
 ## Development
 **Prerequisites**: [poetry](https://python-poetry.org/) for environment management 
@@ -82,7 +120,7 @@ The source code is currently hosted on GitHub at:
 ```shell
 git clone git@github.com:ohmycoffe/pandas-validity.git
 ```
-To install project and development dependencies:
+To install the project and development dependencies:
 ```shell
 make install 
 ```
