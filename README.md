@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/ohmycoffe/pandas-validity/graph/badge.svg?token=4K6RV6E9JX)](https://codecov.io/gh/ohmycoffe/pandas-validity)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 ![PyPI - License](https://img.shields.io/pypi/l/organize-photos)
 
