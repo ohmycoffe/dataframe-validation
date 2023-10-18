@@ -10,45 +10,14 @@
 ![PyPI - License](https://img.shields.io/pypi/l/organize-photos)
 
 ## What is it?
-
 **pandas-validity** is a Python library for the validation of pandas DataFrames. It provides a `DataFrameValidator` class that serves as a context manager. Within this context, you can perform multiple validations and checks. Any encountered errors are collected and raised at the end of the process. The `DataFrameValidator` raises a `ValidationErrorsGroup` exception to summarize the errors.
 
 ## Installation
-
 You can easily install the latest released version using binary installers from the [Python Package Index (PyPI)](https://pypi.org/project/pandas-validity):
 
 ```sh
 pip install pandas-validity
 ```
-
-### Development Installation
-
-**Prerequisites**: [poetry](https://python-poetry.org/) for environment management 
-
-The source code is currently hosted on GitHub at [ohmycoffe/pandas-validity](https://github.com/ohmycoffe/pandas-validity). To get the development version:
-
-```shell
-git clone git@github.com:ohmycoffe/pandas-validity.git
-```
-
-To install the project and development dependencies:
-
-```shell
-make install 
-```
-
-To run tests:
-
-```shell
-make test 
-```
-
-To view all possible commands, use:
-
-```shell
-make help
-```
-
 ## Usage
 ```python
 import pandas as pd
@@ -86,7 +55,6 @@ with DataFrameValidator(df) as validator:
 ```
 
 **Output:**
-
 ```shell
 Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) The dataframe has missing columns: ['E']
 Error occurred: (<class 'pandas_validity.exceptions.ValidationError'>) The dataframe has redundant columns: ['D']
@@ -111,27 +79,32 @@ The library supports the following data types for validation:
 - predefined: `"str"`, `"int"`, `"float"`,`"datetime"`, `"bool"`
 - or any `Callable` that accepts a data `type/dtype` object and returns a boolean value to indicate the validation status - example: `pd.api.types.is_string_dtype`
 
-
 ## Development
 **Prerequisites**: [poetry](https://python-poetry.org/) for environment management 
 
-The source code is currently hosted on GitHub at:
-[https://github.com/ohmycoffe/pandas-validity](https://github.com/ohmycoffe/pandas-validity)
+The source code is currently hosted on GitHub at [ohmycoffe/pandas-validity](https://github.com/ohmycoffe/pandas-validity). To get the development version:
 
 ```shell
 git clone git@github.com:ohmycoffe/pandas-validity.git
 ```
+
 To install the project and development dependencies:
+
 ```shell
 make install 
 ```
+
 To run tests:
+
 ```shell
 make test 
 ```
+
 To view all possible commands, use:
+
 ```shell
-make 
+make help
 ```
+
 ## License
 This project is licensed under the terms of the [MIT](LICENSE) license.
