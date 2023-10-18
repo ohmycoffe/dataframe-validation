@@ -8,7 +8,14 @@ on:
     types:
       - opened
       - synchronize
-
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "poetry.lock"
+      - ".github/**"
+      - "Makefile"
+      - "tox.ini"
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -51,3 +58,25 @@ jobs:
         run: |
           poetry install
           poetry run pytest
+  test-coverage-report:
+    runs-on: ubuntu-latest
+    name: Generate a test-coverage report
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
+      - name: Set up PDM
+        uses: pdm-project/setup-pdm@v3
+      - name: Install Poetry Action
+        uses: snok/install-poetry@v1.3.4
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      - name: Run tests and collect coverage
+        run: |
+          poetry install
+          poetry run pytest --cov=src --cov-report=xml
+      - name: Upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v3

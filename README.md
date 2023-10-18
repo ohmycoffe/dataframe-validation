@@ -1,5 +1,12 @@
 # pandas-validity
-
+[![PyPI - Version](https://img.shields.io/pypi/v/pandas-validity)](https://pypi.org/project/pandas-validity/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pandas-validity)
+[![Test and lint](https://github.com/ohmycoffe/pandas-validity/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ohmycoffe/pandas-validity/actions/workflows/test.yaml?query=branch%3Amain)
+[![codecov](https://codecov.io/gh/ohmycoffe/organize-photos/graph/badge.svg?token=PAN0F7B4E8)](https://codecov.io/gh/ohmycoffe/organize-photos)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
+![PyPI - License](https://img.shields.io/pypi/l/organize-photos)
 ## What is it?
 **pandas-validity** is a Python library for validation of pandas DataFrames. It provides a `DataFrameValidator` class that serves as a context manager. Within this context, you can perform multiple validations and checks. Any encountered errors are collected and raised at the end of the process. The `DataFrameValidator` raises a `ValidationErrorsGroup` exception to summarize the errors.
 
