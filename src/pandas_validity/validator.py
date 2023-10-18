@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import Mapping
 
 import numpy as np
 import pandas as pd
@@ -17,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 
 class DataFrameValidator(AbstractValidator):
-
     """
     Context manager to validate pandas dataframes.
 
@@ -96,7 +96,7 @@ class DataFrameValidator(AbstractValidator):
             )
 
     def has_valid_data_types(
-        self, expected_data_types: dict[str, ValidationFunc_T | type | str]
+        self, expected_data_types: Mapping[str, ValidationFunc_T | type | str]
     ) -> None:
         """Check if columns have valid data types"""
         for col, dtype in self._df.dtypes.items():
