@@ -45,7 +45,7 @@ make test
 To view all possible commands, use:
 
 ```shell
-make 
+make help
 ```
 
 ## Usage

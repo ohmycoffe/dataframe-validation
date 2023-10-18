@@ -65,6 +65,7 @@ profile = "black"
 [tool.flake8]
 max-line-length = 88
 extend-ignore = "E203"
+exclude = ['src/pandas_validity/__init__.py']
 
 [tool.bandit.assert_used]
 skips = ['tests/**/*.py', 'tests/*.py']

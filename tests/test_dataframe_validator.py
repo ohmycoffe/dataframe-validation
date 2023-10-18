@@ -4,9 +4,10 @@ from unittest.mock import MagicMock
 import numpy as np
 import pandas as pd
 import pytest
+from pytest_mock import MockerFixture
+
 from pandas_validity.exceptions import ValidationError, ValidationErrorsGroup
 from pandas_validity.validator import DataFrameValidator
-from pytest_mock import MockerFixture
 
 
 @pytest.fixture

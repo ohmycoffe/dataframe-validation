@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := help
+.DEFAULT_GOAL := all
 sources = src tests
 
 .PHONY: .poetry  # Check that poetry is installed
